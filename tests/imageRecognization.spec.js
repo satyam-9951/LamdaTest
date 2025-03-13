@@ -8,7 +8,7 @@ const { chromium } = require('@playwright/test');
     page.setDefaultNavigationTimeout(120000);
 
     console.log("Navigating to MS Dhoni's Wikipedia page...");
-    await page.goto('https://www.news18.com/cricket/icc-world-cup-2023-reserve-day-semi-finals-final-rain-wash-out-joint-winners-8661316.html', { 
+    await page.goto('https://en.wikipedia.org/wiki/MS_Dhoni', { 
         waitUntil: 'domcontentloaded', 
         timeout: 60000 
     });
@@ -26,7 +26,7 @@ const { chromium } = require('@playwright/test');
 
             // Locate the image using XPath
             const image = document.evaluate(
-                "//img[@title='India, New Zealand, South Africa and Australia are in the semis. (AFP Photo)']", 
+                "//span[@class='mw-default-size']//img[@class='mw-file-element']", 
                 document, 
                 null, 
                 XPathResult.FIRST_ORDERED_NODE_TYPE, 
